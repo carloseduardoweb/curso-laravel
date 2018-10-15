@@ -21,5 +21,16 @@ class ProdutoController extends Controller {
         
         return view('listagem')->withProdutos($produtos);
     }
-    
+
+    public function mostra($id) { // parâmetro de rota passado como argumento
+        //$id = Request::input('id', 0);    // parâmetro de busca
+        //$id = Request::route('id');       // parâmetro de rota
+        $p = DB::select('select * from produtos where id = ?', [$id]);
+        if (empty($p)) {
+            return "Esse produto não existe";
+        } else {
+            return view('detalhes')->with('p', $p[0]);
+        }
+    }
+
 }
