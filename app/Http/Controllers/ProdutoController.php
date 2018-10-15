@@ -19,6 +19,7 @@ class ProdutoController extends Controller {
             return view()->file($home . '/repositorios/curso-laravel/resources/views/listagem.php')->withProdutos($produtos);
         }
         
+        //return view('listagem')->withProdutos(array()); // teste com um array de produtos vazios
         return view('listagem')->withProdutos($produtos);
     }
 
