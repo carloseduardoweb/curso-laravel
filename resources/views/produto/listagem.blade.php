@@ -33,12 +33,17 @@
           }?>
         @endforeach
       </table>
-    @if ($itemEmFalta)
-      <h4>
-        <span class="label label-danger pull-right">
-        Um ou menos itens no estoque
-        </span>
-      </h4>
+      @if ($itemEmFalta)
+        <h4>
+          <span class="label label-danger pull-right">
+          Um ou menos itens no estoque
+          </span>
+        </h4>
+      @endif
     @endif
+    @if (old('nome'))
+    <div class="alert text-success">
+      Produto {{ old('nome') }} adicionado com sucesso!
+    </div>
     @endif
 @stop
