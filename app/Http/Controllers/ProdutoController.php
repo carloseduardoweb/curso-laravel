@@ -9,18 +9,18 @@ class ProdutoController extends Controller {
         
         $produtos = DB::select('select * from produtos');
         //view()                                                //::helper method::
-        //return view('listagem', ['produtos' => $produtos]);   
-        //return view('listagem')->withProdutos($produtos);     //::magic method::
-        //return view('listagem')->with('produtos', $produtos);
-        if (!view()->exists('listagem')) {
+        //return view('produto.listagem', ['produtos' => $produtos]);   
+        //return view('produto.listagem')->withProdutos($produtos);     //::magic method::
+        //return view('produto.listagem')->with('produtos', $produtos);
+        if (!view()->exists('produto.listagem')) {
             $argv = null;
             exec('echo $HOME', $argv);
             $home = $argv[0];
-            return view()->file($home . '/repositorios/curso-laravel/resources/views/listagem.php')->withProdutos($produtos);
+            return view()->file($home . '/repositorios/curso-laravel/resources/views/produto/listagem.php')->withProdutos($produtos);
         }
         
-        //return view('listagem')->withProdutos(array()); // teste com um array de produtos vazios
-        return view('listagem')->withProdutos($produtos);
+        //return view('produto.listagem')->withProdutos(array()); // teste com um array de produtos vazios
+        return view('produto.listagem')->withProdutos($produtos);
     }
 
     public function mostra($id) { // parâmetro de rota passado como argumento
@@ -30,7 +30,7 @@ class ProdutoController extends Controller {
         if (empty($p)) {
             return "Esse produto não existe";
         } else {
-            return view('detalhes')->with('p', $p[0]);
+            return view('produto.detalhes')->with('p', $p[0]);
         }
     }
 
