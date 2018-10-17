@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::get('/', function() {
     return '<h1>Primeira lógica com Laravel</h1>';
 });
@@ -23,6 +22,8 @@ Route::get('/', function() {
 Route::get('/produtos', 'ProdutoController@lista');
 
 Route::get('/produtos/mostra/{id}', 'ProdutoController@mostra')->where('id', '[0-9]+');
+
+Route::post('/produtos/remove', 'ProdutoController@remove');
 
 Route::get('/produtos/novo', 'ProdutoController@novo');
 
