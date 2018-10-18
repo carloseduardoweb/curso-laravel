@@ -10,7 +10,7 @@ class Produto extends Model {
     
     public $timestamps = false;
     
-    protected $fillable = ['nome', 'valor', 'quantidade', 'descricao']; //Importante para ::mass assignment::
+    protected $fillable = ['nome', 'valor', 'quantidade', 'descricao', 'tamanho']; //Importante para ::mass assignment::
     //protected $guarded = ['id']; //Importante para ::mass assignment::
 
     public function isEmpty() {

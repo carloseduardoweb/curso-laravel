@@ -11,6 +11,7 @@
           <th>Valor</th>
           <th>Descrição</th>
           <th>Quantidade</th>
+          <th>Tamanho</th>
           <th colspan="2">Ações</th>
         </tr>
         <?php $itemEmFalta = false; ?>
@@ -20,6 +21,7 @@
             <td>{{ $p->valor }}</td>
             <td>{{ $p->descricao }}</td>
             <td>{{ $p->quantidade }}</td>
+            <td>{{ $p->tamanho }}</td>
             <td>
               <a href="{{ "/produtos/mostra/" . $p->id }}">
                 <span class="glyphicon glyphicon-search"></span>

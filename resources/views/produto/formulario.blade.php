@@ -20,6 +20,10 @@
             <input id="quantidade" type="number" name="quantidade" min="0" class="form-control"  value="{{ $produto->quantidade }}" required/>
         </div>
         <div class="form-group">
+            <label for="tamanho">Tamanho</label>
+            <input id="tamanho" type="text" name="tamanho" class="form-control"  value="{{ $produto->tamanho }}"/>
+        </div>
+        <div class="form-group">
             <label for="descricao">Descrição</label>
             <textarea id="descricao" name="descricao" class="form-control">{{ $produto->descricao }}</textarea>
         </div>
