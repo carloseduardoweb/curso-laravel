@@ -32,3 +32,5 @@ Route::post('/produtos/adiciona', 'ProdutoController@adiciona');
 Route::get('/produtos/json', 'ProdutoController@listaJson');
 
 Route::get('/produtos/download/{filename}', 'ProdutoController@download');
+
+Route::post('/produtos/atualiza', 'ProdutoController@atualiza');

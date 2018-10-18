@@ -7,7 +7,6 @@ use CursoLaravel\Produto;
 class ProdutoController extends Controller {
 
     public function lista() {
-        
         //$produtos = DB::select('select * from produtos');
         $produtos = Produto::all();
         //view()                                                        //::helper method::
@@ -34,7 +33,7 @@ class ProdutoController extends Controller {
         //return $produtos;
     }
 
-    public function mostra($id) {           // parâmetro de rota passado como argumento
+    public function mostra($id) {           // parâmetro de rota passado como argumento, ::path param::
         //$id = Request::input('id', 0);    // parâmetro de busca
         //$id = Request::route('id');       // parâmetro de rota
         //$p = DB::select('select * from produtos where id = ?', [$id]);
@@ -42,12 +41,14 @@ class ProdutoController extends Controller {
         if (empty($p)) {
             return "Esse produto não existe";
         } else {
-            return view('produto.detalhes')->with('p', $p);
+            //return view('produto.detalhes')->withProduto($p);
+            return view('produto.formulario')->withProduto($p);
         }
     }
 
     public function novo() {
-        return view('produto.formulario');
+        $p = new Produto();
+        return view('produto.formulario')->withProduto($p);
     }
 
     public function adiciona() {
@@ -77,6 +78,13 @@ class ProdutoController extends Controller {
         //return redirect('/produtos')->withInput();              //Envia os parâmetros da requisição atual para a nova.
         //return redirect('/produtos')->withInput(Request::only('nome'));
         return redirect()->action('ProdutoController@lista')->withInput(['adicionado' => Request::input('nome')]);
+    }
+
+    public function atualiza() {
+        $produto = Produto::find(Request::input('id'));
+        $produto->fill(Request::all());
+        $produto->save();
+        return redirect()->action('ProdutoController@lista')->withInput(['atualizado' => $produto->nome]);
     }
 
     public function remove() {

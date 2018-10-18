@@ -2,7 +2,7 @@
 
 @section('conteudo')
     <h1>Listagem de produtos</h1>
-    @if (empty($produtos))
+    @if ($produtos->isEmpty())
       <div class="alert alert-danger">Você não tem nenhum produto cadastrado.</div>
     @else
       <table class="table table-bordered table-hover">
@@ -50,7 +50,12 @@
     @endif
     @if (old('adicionado'))
     <div class="alert text-success">
-      Produto {{ old('adicionado') }} adicionado com sucesso!
+      Produto '{{ old('adicionado') }}' adicionado com sucesso!
+    </div>
+    @endif
+    @if (old('atualizado'))
+    <div class="alert text-success">
+      Produto '{{ old('atualizado') }}' atualizado com sucesso!
     </div>
     @endif
     @if (old('removido'))
