@@ -99,6 +99,7 @@ return [
     |
     */
 
+    //Importante: para definir mensagens padronizadas em toda a aplicação.
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
