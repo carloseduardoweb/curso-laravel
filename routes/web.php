@@ -15,10 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', function() {
-    return '<h1>Primeira lógica com Laravel</h1>';
-});
-
 Route::get('/produtos', 'ProdutoController@lista');
 
 Route::get('/produtos/mostra/{id}', 'ProdutoController@mostra')->where('id', '[0-9]+');
@@ -34,3 +30,11 @@ Route::get('/produtos/json', 'ProdutoController@listaJson');
 Route::get('/produtos/download/{filename}', 'ProdutoController@download');
 
 Route::post('/produtos/atualiza', 'ProdutoController@atualiza');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/login', 'LoginController@form');
+
+Route::post('/login', 'LoginController@login');
