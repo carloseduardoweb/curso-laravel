@@ -19,6 +19,7 @@ class Kernel extends HttpKernel
         \CursoLaravel\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \CursoLaravel\Http\Middleware\TrustProxies::class,
+        //\CursoLaravel\Http\Middleware\AutorizadorMiddleware::class,
     ];
 
     /**
@@ -57,5 +58,6 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \CursoLaravel\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'autorizador' => \CursoLaravel\Http\Middleware\AutorizadorMiddleware::class,
     ];
 }

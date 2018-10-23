@@ -12,12 +12,10 @@
         <div class="navbar-header">      
           <a class="navbar-brand" href="{{ !auth()->guest() ? action('ProdutoController@lista') : '/login' }}">Estoque Laravel</a>
         </div>
-        @if (!auth()->guest())
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{action('ProdutoController@lista')}}">Listagem</a></li>
-            <li><a href="{{action('ProdutoController@novo')}}">Novo</a></li>
-          </ul>
-        @endif
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="{{action('ProdutoController@lista')}}">Listagem</a></li>
+          <li><a href="{{action('ProdutoController@novo')}}">Novo</a></li>
+        </ul>
       </div>
     </nav>
     @yield('conteudo')

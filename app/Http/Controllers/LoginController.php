@@ -16,9 +16,17 @@ class LoginController extends Controller
         $credenciais = Request::only('email', 'password');
 
         if (Auth::attempt($credenciais)) {
-            return "Logado com sucesso!";
+            return "Usuário " . Auth::user()->name . " logado com sucesso!";
+            //return redirect()->intended('/'); //Não funciona como esperado...
         }
 
         return "Credenciais inválidas.";
+    }
+
+    public function logout() {
+
+        Auth::logout();
+
+        return "Deslogado com sucesso.";
     }
 }

@@ -31,10 +31,12 @@ Route::get('/produtos/download/{filename}', 'ProdutoController@download');
 
 Route::post('/produtos/atualiza', 'ProdutoController@atualiza');
 
-Auth::routes();
+//Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/login', 'LoginController@form');
 
 Route::post('/login', 'LoginController@login');
+
+Route::get('/logout', 'LoginController@logout');

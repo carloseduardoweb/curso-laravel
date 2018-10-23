@@ -7,6 +7,10 @@ use CursoLaravel\Http\Requests\ProdutosRequest;
 
 class ProdutoController extends Controller {
 
+    public function __construct() {
+        $this->middleware('autorizador', ['only' => ['novo', 'adiciona', 'atualiza', 'remove']]);
+    }
+
     public function lista() {
         $produtos = Produto::all();
         if (!view()->exists('produto.listagem')) {
