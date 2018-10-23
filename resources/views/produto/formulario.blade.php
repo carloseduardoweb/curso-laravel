@@ -37,6 +37,14 @@
             <textarea id="descricao" name="descricao" class="form-control">{{ $produto->descricao or old('descricao') }}</textarea>
         </div>
         <div class="form-group">
+            <label for="categoria">Categoria</label>
+            <select name="categoria" class="form-control">
+                @foreach ($categorias as $categoria)
+                    <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
             @if ($produto->isEmpty())
                 <button formaction="{{action('ProdutoController@adiciona')}}" class="btn btn-primary btn-block">Adicionar</button>
             @else

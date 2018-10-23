@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\DB;
 use Request;
 use CursoLaravel\Produto;
+use CursoLaravel\Categoria;
 use CursoLaravel\Http\Requests\ProdutosRequest;
 
 class ProdutoController extends Controller {
@@ -38,7 +39,7 @@ class ProdutoController extends Controller {
 
     public function novo() {
         $p = new Produto();
-        return view('produto.formulario')->withProduto($p);
+        return view('produto.formulario')->withProduto($p)->withCategorias(Categoria::all());
     }
 
     public function adiciona(ProdutosRequest $request) {
